@@ -10,8 +10,8 @@ interface MobileScrollTextRevealProps {
 }
 
 /**
- * Mobile-only section: scroll gets "stuck" (pinned) while text reveals
- * letter by letter from grey to white. Once complete, scroll continues.
+ * Mobile-only: text reveals letter by letter (grey → white) on scroll.
+ * No pin — section below (e.g. image) is visible directly.
  */
 const MobileScrollTextReveal = ({ text, className = "" }: MobileScrollTextRevealProps) => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -27,12 +27,13 @@ const MobileScrollTextReveal = ({ text, className = "" }: MobileScrollTextReveal
     if (!section || !textContainer) return;
 
     const charEls = textContainer.querySelectorAll("span");
+    const grey = 115;
+    const white = 255;
 
-    const triggers = ScrollTrigger.create({
+    const st = ScrollTrigger.create({
       trigger: section,
-      start: "top top",
-      end: "+=400%",
-      pin: true,
+      start: "top 90%",
+      end: "+=45%",
       scrub: 1,
       onUpdate: (self) => {
         const progress = self.progress;
@@ -40,8 +41,6 @@ const MobileScrollTextReveal = ({ text, className = "" }: MobileScrollTextReveal
         charEls.forEach((char, i) => {
           const charProgress = (progress * totalChars - i) / 1;
           const reveal = Math.min(1, Math.max(0, charProgress));
-          const grey = 115;
-          const white = 255;
           const r = Math.round(grey + (white - grey) * reveal);
           const g = Math.round(grey + (white - grey) * reveal);
           const b = Math.round(grey + (white - grey) * reveal);
@@ -51,17 +50,14 @@ const MobileScrollTextReveal = ({ text, className = "" }: MobileScrollTextReveal
     });
 
     return () => {
-      triggers.kill();
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.trigger === section) t.kill();
-      });
+      st.kill();
     };
   }, [text]);
 
   return (
     <section
       ref={sectionRef}
-      className={`md:hidden min-h-screen flex items-center justify-center px-6 py-20 bg-background ${className}`}
+      className={`md:hidden flex items-center justify-center px-6 py-10 bg-background ${className}`}
     >
       <p
         ref={textContainerRef}

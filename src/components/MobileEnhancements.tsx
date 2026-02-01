@@ -99,51 +99,6 @@ const MobileEnhancements = ({ children }: MobileEnhancementsProps) => {
       }
     }
 
-    // Add scroll hint indicator
-    const scrollHint = document.createElement("div");
-    scrollHint.className = "scroll-hint";
-    scrollHint.innerHTML = `
-      <div style="
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 9998;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        opacity: 1;
-        transition: opacity 0.3s;
-      ">
-        <span style="
-          color: #FF8C00;
-          font-size: 12px;
-          font-weight: 600;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-        ">Scroll</span>
-        <div style="
-          width: 2px;
-          height: 30px;
-          background: linear-gradient(to bottom, #FF8C00, transparent);
-          animation: scrollPulse 2s ease-in-out infinite;
-        "></div>
-      </div>
-    `;
-    container.appendChild(scrollHint);
-
-    // Hide scroll hint after scrolling
-    ScrollTrigger.create({
-      start: "top top-=100",
-      onEnter: () => {
-        gsap.to(scrollHint, { opacity: 0, duration: 0.5 });
-      },
-      onLeaveBack: () => {
-        gsap.to(scrollHint, { opacity: 1, duration: 0.5 });
-      },
-    });
-
     return () => {
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
@@ -153,18 +108,6 @@ const MobileEnhancements = ({ children }: MobileEnhancementsProps) => {
     <>
       <style>{`
         @media (max-width: 768px) {
-          /* Scroll animations */
-          @keyframes scrollPulse {
-            0%, 100% {
-              transform: translateY(0);
-              opacity: 1;
-            }
-            50% {
-              transform: translateY(10px);
-              opacity: 0.5;
-            }
-          }
-
           @keyframes gradientShift {
             0%, 100% {
               background-position: 0% 50%;
