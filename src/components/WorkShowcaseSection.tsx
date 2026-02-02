@@ -89,7 +89,9 @@ const WorkShowcaseSection = () => {
           trigger: card,
           start: "top center+=100",
           end: "bottom center-=100",
-          toggleActions: "play none none reverse",
+          // Play when entering viewport (down or up), reverse when leaving.
+          // This makes animations respond both top→down and down→top.
+          toggleActions: "play reverse play reverse",
           markers: false,
         },
       });
@@ -265,9 +267,9 @@ const WorkShowcaseSection = () => {
             }}
             className="relative min-h-[350px] md:min-h-[600px] flex items-center isolate"
           >
-            {/* Rotating Number Background - Behind content (z-index -1 within isolated card) */}
+            {/* Rotating Number Background - behind content (shifted lower on mobile) */}
             <div
-              className="project-number absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] md:text-[15vw] font-hero font-bold opacity-5 pointer-events-none"
+              className="project-number absolute top-[75%] md:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[32vw] md:text-[15vw] font-hero font-bold opacity-5 pointer-events-none"
               style={{ color: '#FF8C00', zIndex: -1 }}
             >
               {String(index + 1).padStart(2, '0')}

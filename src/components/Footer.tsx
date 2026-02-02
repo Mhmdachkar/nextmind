@@ -53,8 +53,8 @@ const Footer = () => {
 
     // Create gooey particles using DocumentFragment for better performance
     if (particleContainer) {
-      const isMobile = window.innerWidth < 768;
-      const particleCount = isMobile ? 40 : 120; // Fewer particles on mobile
+      // Use the same rich gooey effect on mobile and desktop
+      const particleCount = 120;
       const fragment = document.createDocumentFragment();
       
       for (let i = 0; i < particleCount; i++) {
@@ -70,19 +70,12 @@ const Footer = () => {
           span.classList.add("particle-wave");
         }
         
-        const size = isMobile 
-          ? 1.5 + Math.random() * 3 // 1.5-4.5rem (smaller on mobile)
-          : 2.5 + Math.random() * 6; // 2.5-8.5rem (bigger on desktop)
-        const distance = isMobile
-          ? 6 + Math.random() * 10 // 6-16rem (less distance on mobile)
-          : 8 + Math.random() * 15; // 8-23rem
+        // Desktop-style sizes and movement for all viewports
+        const size = 2.5 + Math.random() * 6;      // 2.5–8.5rem
+        const distance = 8 + Math.random() * 15;   // 8–23rem
         const position = Math.random() * 100; // 0-100%
-        const horizontalMove = isMobile
-          ? -20 + Math.random() * 40 // -20 to 20 (less horizontal on mobile)
-          : -40 + Math.random() * 80; // -40 to 40 (more horizontal on desktop)
-        const time = isMobile
-          ? 8 + Math.random() * 10 // 8-18s (slower on mobile)
-          : 5 + Math.random() * 7; // 5-12s (variety on desktop)
+        const horizontalMove = -40 + Math.random() * 80; // -40 to 40
+        const time = 5 + Math.random() * 7;              // 5–12s
         const delay = -1 * (Math.random() * 25); // More spread out
         
         span.style.setProperty("--dim", `${size}rem`);
