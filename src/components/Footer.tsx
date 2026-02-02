@@ -17,6 +17,7 @@ const Footer = () => {
     const topSection = topSectionRef.current;
     const columns = columnsRef.current.filter(Boolean);
     const particleContainer = particleContainerRef.current;
+    const isMobile = window.innerWidth < 768;
 
     if (!footer) return;
 
@@ -52,8 +53,8 @@ const Footer = () => {
     }
 
     // Create gooey particles using DocumentFragment for better performance
-    if (particleContainer) {
-      // Use the same rich gooey effect on mobile and desktop
+    // Only on desktop/tablet; mobile gets a clean flat edge
+    if (particleContainer && !isMobile) {
       const particleCount = 120;
       const fragment = document.createDocumentFragment();
       
@@ -70,12 +71,12 @@ const Footer = () => {
           span.classList.add("particle-wave");
         }
         
-        // Desktop-style sizes and movement for all viewports
-        const size = 2.5 + Math.random() * 6;      // 2.5–8.5rem
-        const distance = 8 + Math.random() * 15;   // 8–23rem
+        // Desktop-style sizes and movement
+        const size = 2.5 + Math.random() * 6;
+        const distance = 8 + Math.random() * 15;
         const position = Math.random() * 100; // 0-100%
-        const horizontalMove = -40 + Math.random() * 80; // -40 to 40
-        const time = 5 + Math.random() * 7;              // 5–12s
+        const horizontalMove = -40 + Math.random() * 80;
+        const time = 5 + Math.random() * 7;
         const delay = -1 * (Math.random() * 25); // More spread out
         
         span.style.setProperty("--dim", `${size}rem`);
