@@ -111,7 +111,7 @@ const Contact = () => {
 
     const isMobile = window.innerWidth < 768;
 
-    // Mobile: GSAP - form elements from left/right, cards stack, text effects
+    // Mobile: GSAP - form elements from left/right, text effects
     if (isMobile) {
       if (form) {
         const formElements = form.querySelectorAll('.form-element');
@@ -125,23 +125,6 @@ const Contact = () => {
             ease: "power3.out",
             scrollTrigger: { trigger: el, start: "top 88%" },
             delay: index * 0.1,
-          });
-        });
-      }
-      if (infoCards) {
-        const cards = infoCards.querySelectorAll('.social-card');
-        cards.forEach((card, index) => {
-          const fromX = index === 0 ? -80 : index === 1 ? 0 : 80;
-          const fromY = index === 1 ? 60 : 0;
-          gsap.from(card, {
-            opacity: 0,
-            x: fromX,
-            y: fromY,
-            scale: 0.85,
-            duration: 0.85,
-            ease: "back.out(1.4)",
-            scrollTrigger: { trigger: card, start: "top 85%" },
-            delay: index * 0.15,
           });
         });
       }
@@ -217,6 +200,7 @@ const Contact = () => {
       });
     }
 
+    // Desktop: animate social cards in "Let's Connect" section
     if (infoCards) {
       const cards = infoCards.querySelectorAll('.social-card');
       cards.forEach((card, index) => {
@@ -548,7 +532,7 @@ const Contact = () => {
 
         <section
           ref={infoCardsRef}
-          className="px-6 md:px-12 py-16 relative overflow-hidden"
+          className="px-6 md:px-12 py-14 md:py-20 relative overflow-hidden"
           style={{
             background: 'linear-gradient(135deg, #FF8C00 0%, #ff6600 50%, #FF8C00 100%)',
           }}
@@ -574,59 +558,61 @@ const Contact = () => {
             />
           ))}
           <div className="max-w-6xl mx-auto w-full relative z-10">
-            <div className="text-center mb-12">
-              <h2 className="font-hero text-5xl md:text-7xl font-bold uppercase mb-6 text-black drop-shadow-lg">
-                Let's Connect
-              </h2>
-              <p className="text-xl text-black/80 max-w-2xl mx-auto font-medium">
-                Reach out to us through any of these channels. We're here to help bring your vision to life.
-              </p>
-            </div>
+            <div className="rounded-3xl bg-black/15 md:bg-transparent border border-black/25 md:border-none px-5 py-6 md:px-0 md:py-0 backdrop-blur-sm md:backdrop-blur-0">
+              <div className="text-center mb-8 md:mb-12">
+                <h2 className="font-hero text-4xl md:text-7xl font-bold uppercase mb-3 md:mb-6 text-black drop-shadow-lg">
+                  Let's Connect
+                </h2>
+                <p className="text-base md:text-xl text-black/80 max-w-2xl mx-auto font-medium">
+                  Reach out to us through any of these channels. We're here to help bring your vision to life.
+                </p>
+              </div>
 
-            <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-8 items-center">
-              <MobileAnimatedCard index={0} direction="left" className="">
+              <div className="grid grid-cols-3 gap-4 md:flex md:flex-row md:justify-center md:gap-8 items-stretch">
+              <div>
                 <a
                   href="mailto:nextmind@gmail.com"
-                  className="social-card group relative p-12 border-4 border-black hover:border-white transition-all duration-300 bg-white/10 hover:bg-white/20 backdrop-blur-sm overflow-hidden flex flex-col items-center"
+                  className="social-card group relative p-4 md:p-6 border-0 md:border-4 md:border-black md:hover:border-white transition-all duration-300 bg-white/5 md:bg-white/10 md:hover:bg-white/20 backdrop-blur-sm overflow-hidden flex flex-col items-center"
                 >
                   <div className="relative z-10 flex flex-col items-center">
-                    <Mail className="w-20 h-20 text-black mb-4" strokeWidth={1.5} />
+                    <Mail className="w-10 h-10 md:w-12 md:h-12 text-black mb-2 md:mb-3" strokeWidth={1.5} />
                     <h3 className="font-hero text-sm uppercase tracking-wider text-black">
                       Gmail
                     </h3>
                   </div>
                 </a>
-              </MobileAnimatedCard>
-              <MobileAnimatedCard index={1} direction="bottom" className="">
+              </div>
+              <div>
                 <a
                   href="https://wa.me/96176764263"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-card group relative p-12 border-4 border-black hover:border-white transition-all duration-300 bg-white/10 hover:bg-white/20 backdrop-blur-sm overflow-hidden flex flex-col items-center"
+                  className="social-card group relative p-4 md:p-6 border-0 md:border-4 md:border-black md:hover:border-white transition-all duration-300 bg-white/5 md:bg-white/10 md:hover:bg-white/20 backdrop-blur-sm overflow-hidden flex flex-col items-center"
                 >
                   <div className="relative z-10 flex flex-col items-center">
-                    <MessageCircle className="w-20 h-20 text-black mb-4" strokeWidth={1.5} />
+                    <MessageCircle className="w-10 h-10 md:w-12 md:h-12 text-black mb-2 md:mb-3" strokeWidth={1.5} />
                     <h3 className="font-hero text-sm uppercase tracking-wider text-black">
                       WhatsApp
                     </h3>
                   </div>
                 </a>
-              </MobileAnimatedCard>
-              <MobileAnimatedCard index={2} direction="right" className="">
+              </div>
+              <div>
                 <a
                   href="https://instagram.com/nextmind"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-card group relative p-12 border-4 border-black hover:border-white transition-all duration-300 bg-white/10 hover:bg-white/20 backdrop-blur-sm overflow-hidden flex flex-col items-center"
+                  className="social-card group relative p-4 md:p-6 border-0 md:border-4 md:border-black md:hover:border-white transition-all duration-300 bg-white/5 md:bg-white/10 md:hover:bg-white/20 backdrop-blur-sm overflow-hidden flex flex-col items-center"
                 >
                   <div className="relative z-10 flex flex-col items-center">
-                    <Instagram className="w-20 h-20 text-black mb-4" strokeWidth={1.5} />
+                    <Instagram className="w-10 h-10 md:w-12 md:h-12 text-black mb-2 md:mb-3" strokeWidth={1.5} />
                     <h3 className="font-hero text-sm uppercase tracking-wider text-black">
                       Instagram
                     </h3>
                   </div>
                 </a>
-              </MobileAnimatedCard>
+              </div>
+              </div>
             </div>
           </div>
         </section>

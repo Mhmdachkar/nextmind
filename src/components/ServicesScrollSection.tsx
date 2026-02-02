@@ -21,8 +21,8 @@ const services = [
   },
   { 
     icon: "⚡", 
-    name: "AI Integrations", 
-    desc: "Seamless AI into your workflow",
+    name: "AI Automation", 
+    desc: "Automate tasks and workflows with AI",
     color: "#FFD93D",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&h=300&fit=crop"
   },
@@ -32,6 +32,13 @@ const services = [
     desc: "iOS & Android with AI features",
     color: "#6C5CE7",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop"
+  },
+  { 
+    icon: "🧾", 
+    name: "POS Systems", 
+    desc: "Modern point-of-sale for fast checkout",
+    color: "#00B894",
+    image: "https://images.unsplash.com/photo-1556742049-9083c0c022e0?w=400&h=300&fit=crop"
   },
   { 
     icon: "🎨", 

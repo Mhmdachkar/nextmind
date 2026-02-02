@@ -142,7 +142,8 @@ const StatsSection = () => {
         />
       ))}
 
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-16 relative z-10 w-full max-w-7xl">
+      {/* 3 stats side-by-side on mobile and desktop */}
+      <div className="grid grid-cols-3 gap-4 md:flex md:flex-row md:items-center md:justify-center md:gap-8 lg:gap-16 relative z-10 w-full max-w-7xl">
         {stats.map((stat, index) => (
           <div
             key={index}
@@ -151,9 +152,9 @@ const StatsSection = () => {
             }}
             className="text-center flex-1 relative"
           >
-            {/* Mobile-only: Circular Progress */}
-            <div className="md:hidden relative inline-block mb-4">
-              <svg className="w-32 h-32" viewBox="0 0 100 100">
+            {/* Mobile-only: Circular Progress (smaller for side-by-side layout) */}
+            <div className="md:hidden relative inline-block mb-3">
+              <svg className="w-24 h-24" viewBox="0 0 100 100">
                 {/* Background circle */}
                 <circle
                   cx="50"
@@ -185,7 +186,7 @@ const StatsSection = () => {
               {/* Number inside circle */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div
-                  className="stat-number font-hero text-4xl font-bold text-foreground"
+                  className="stat-number font-hero text-2xl font-bold text-foreground"
                   style={{
                     textShadow: '0 0 20px rgba(255, 140, 0, 0.5)',
                   }}
@@ -205,7 +206,7 @@ const StatsSection = () => {
               {stat.prefix}0
             </div>
 
-            <div className="stat-label font-serif text-sm md:text-xl lg:text-2xl text-foreground/80 uppercase tracking-wider">
+            <div className="stat-label font-serif text-[10px] md:text-xl lg:text-2xl text-foreground/80 uppercase tracking-wider">
               {stat.label}
             </div>
           </div>

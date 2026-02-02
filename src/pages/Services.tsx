@@ -636,9 +636,11 @@ const Services = () => {
                       <div className="relative p-6 md:p-8 border border-orange-500/30 hover:border-orange-500 transition-all duration-300 bg-gradient-to-br from-background to-orange-950/10 backdrop-blur-sm overflow-hidden group">
                         <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div className="relative z-10">
-                          <h3 className="font-hero text-xl md:text-2xl font-bold uppercase mb-3 text-orange-400">Development</h3>
+                          <h3 className="font-hero text-xl md:text-2xl font-bold uppercase mb-3 text-orange-400">
+                            Development & POS Systems
+                          </h3>
                           <p className="text-foreground/70 leading-relaxed">
-                            Cutting-edge technology stack and best practices to build scalable, performant solutions that stand the test of time.
+                            Cutting-edge web and mobile development, modern POS systems, and custom platforms that are fast, reliable, and built to scale.
                           </p>
                         </div>
                       </div>
@@ -653,9 +655,11 @@ const Services = () => {
                       <div className="relative p-6 md:p-8 border border-orange-500/30 hover:border-orange-500 transition-all duration-300 bg-gradient-to-bl from-background to-orange-950/10 backdrop-blur-sm overflow-hidden group">
                         <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div className="relative z-10">
-                          <h3 className="font-hero text-xl md:text-2xl font-bold uppercase mb-3 text-orange-400">Deployment</h3>
+                          <h3 className="font-hero text-xl md:text-2xl font-bold uppercase mb-3 text-orange-400">
+                            Deployment & AI Automation
+                          </h3>
                           <p className="text-foreground/70 leading-relaxed">
-                            Seamless launch and continuous optimization to ensure your product performs at its peak and scales with your growth.
+                            Seamless launches, monitoring, and AI automations that streamline workflows, reduce manual work, and keep your product performing at its peak.
                           </p>
                         </div>
                       </div>

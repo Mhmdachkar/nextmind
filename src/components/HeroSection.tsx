@@ -125,64 +125,74 @@ const HeroSection = () => {
 
       {/* Mobile-only: Enhanced hero with scroll effects */}
       <div className="md:hidden w-full relative z-50">
-        <div className="space-y-6">
+        <div className="space-y-6 rounded-3xl bg-black/40 border border-white/10 px-5 py-6 backdrop-blur-md shadow-[0_18px_45px_rgba(0,0,0,0.85)]">
+          {/* Eyebrow label */}
+          <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/15 border border-orange-400/40 text-[10px] font-semibold tracking-[0.25em] uppercase text-orange-200">
+            Digital products studio
+          </p>
+
           {/* Hero Title */}
           <h1 
-            className="font-hero text-5xl font-bold uppercase leading-tight text-foreground"
+            className="font-hero text-[2.6rem] leading-tight font-extrabold uppercase text-transparent bg-clip-text"
             style={{
-              textShadow: '0 4px 12px rgba(255, 140, 0, 0.3)',
+              backgroundImage: 'linear-gradient(135deg, #ffffff 0%, #ffe0c0 40%, #FF8C00 100%)',
+              textShadow: '0 8px 30px rgba(0,0,0,0.8)',
             }}
           >
-            LET'S BUILD
+            LET'S BUILD<br />
+            WHAT&apos;S NEXT
           </h1>
           
           {/* Value Propositions - orange and white with word spacing */}
-          <div className="space-y-4 text-lg font-semibold leading-relaxed" style={{ wordSpacing: '0.35em' }}>
-            <p className="text-white">
-              We turn <span className="text-orange-500">personal brands</span> into <span className="text-orange-500">digital machines</span>
+          <div className="space-y-3 text-sm font-medium leading-relaxed text-foreground/85">
+            <p>
+              We turn <span className="text-orange-400 font-semibold">personal brands</span> into{" "}
+              <span className="text-orange-400 font-semibold">digital machines</span>.
             </p>
-            <p className="text-white">
-              We turn <span className="text-orange-500">influence</span> into <span className="text-orange-500">revenue</span>
+            <p>
+              We turn <span className="text-orange-400 font-semibold">influence</span> into{" "}
+              <span className="text-orange-400 font-semibold">revenue</span> with products that sell for you.
             </p>
           </div>
 
           {/* Agency-focused CTA Buttons */}
-          <div className="flex flex-col gap-3 pt-2">
+          <div className="flex flex-col gap-3 pt-1">
             <a 
               href="/contact"
-              className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-hero uppercase tracking-wider text-sm rounded-full text-center transition-all duration-300 active:scale-95"
+              className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-hero uppercase tracking-wider text-sm rounded-full text-center transition-all duration-300 active:scale-95 relative overflow-hidden"
               style={{
-                boxShadow: '0 8px 20px rgba(255, 140, 0, 0.4)',
+                boxShadow: '0 14px 30px rgba(255, 140, 0, 0.55)',
               }}
             >
+              <span className="absolute inset-0 bg-white/20 opacity-0 hover:opacity-20 transition-opacity" />
               Start Your Project
             </a>
             <a 
               href="/contact"
-              className="px-8 py-4 bg-transparent border-2 border-orange-500/50 hover:border-orange-500 text-foreground font-hero uppercase tracking-wider text-sm rounded-full text-center transition-all duration-300 active:scale-95"
+              className="px-8 py-4 bg-black/40 border border-orange-500/60 hover:border-orange-400 text-white font-hero uppercase tracking-wider text-sm rounded-full text-center transition-all duration-300 active:scale-95"
             >
               Get Free Consultation
             </a>
           </div>
 
           {/* Quick Metrics - Updated */}
-          <div className="grid grid-cols-3 gap-3 pt-4">
-            <div className="text-center p-3 bg-black/5 rounded-xl border border-orange-500/20">
-              <div className="text-2xl font-bold text-orange-500">50+</div>
-              <div className="text-xs text-foreground/60 uppercase mt-1">Projects</div>
+          <div className="grid grid-cols-3 gap-3 pt-3">
+            <div className="text-center p-3 bg-black/40 rounded-xl border border-white/10">
+              <div className="text-2xl font-bold text-orange-400">50+</div>
+              <div className="text-[10px] text-foreground/60 uppercase mt-1 tracking-wide">Projects</div>
             </div>
-            <div className="text-center p-3 bg-black/5 rounded-xl border border-orange-500/20">
-              <div className="text-2xl font-bold text-orange-500">✓</div>
-              <div className="text-xs text-foreground/60 uppercase mt-1">Proven Results</div>
+            <div className="text-center p-3 bg-black/40 rounded-xl border border-white/10">
+              <div className="text-2xl font-bold text-orange-400">✓</div>
+              <div className="text-[10px] text-foreground/60 uppercase mt-1 tracking-wide">Proven Results</div>
             </div>
-            <div className="text-center p-3 bg-black/5 rounded-xl border border-orange-500/20">
-              <div className="text-2xl font-bold text-orange-500">∞</div>
-              <div className="text-xs text-foreground/60 uppercase mt-1">Ongoing Support</div>
+            <div className="text-center p-3 bg-black/40 rounded-xl border border-white/10">
+              <div className="text-2xl font-bold text-orange-400">∞</div>
+              <div className="text-[10px] text-foreground/60 uppercase mt-1 tracking-wide">Ongoing Support</div>
             </div>
           </div>
 
           {/* Who We Help */}
-          <div className="mt-6 p-4 bg-orange-500/10 rounded-2xl border border-orange-500/30">
+          <div className="mt-6 p-4 bg-black/30 rounded-2xl border border-white/10">
             <h3 className="text-sm font-bold uppercase tracking-wider text-orange-500 mb-3">Who We Help</h3>
             <div className="flex flex-wrap gap-2">
               {['Influencers', 'Startups', 'SMEs', 'Personal Brands', 'E-commerce'].map((tag, i) => (
@@ -197,7 +207,7 @@ const HeroSection = () => {
           </div>
 
           {/* Testimonial with Real Name */}
-          <div className="mt-4 p-4 bg-black/5 rounded-2xl border border-orange-500/20">
+          <div className="mt-4 p-4 bg-black/40 rounded-2xl border border-white/10">
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 text-2xl font-bold">
