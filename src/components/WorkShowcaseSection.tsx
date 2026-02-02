@@ -24,13 +24,13 @@ const projects = [
     client: "Nova Tech",
   },
   {
-    title: "Rawan Creates",
+    title: "Creative Brand Studio",
     description: "Branding & Social Media Specialist",
     tags: ["BRANDING", "SOCIAL MEDIA", "DESIGN"],
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=700&fit=crop",
     duration: "3 months",
     result: "+400% followers",
-    client: "Rawan Media",
+    client: "Brand Media",
   },
   {
     title: "RetailPro POS",
