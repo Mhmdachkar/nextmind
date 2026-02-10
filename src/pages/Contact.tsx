@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import MobileEnhancements from "@/components/MobileEnhancements";
 import { MobileAnimatedSection, MobileAnimatedCard } from "@/components/MobileAnimatedSection";
 import MobileTextWithPopImages from "@/components/MobileTextWithPopImages";
-import { addClient } from "@/lib/clients";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,28 +75,13 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-
-    try {
-      addClient({
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        services: formData.services,
-        budget: formData.budget,
-        message: formData.message,
-      });
-      window.dispatchEvent(new CustomEvent("clients-updated"));
-    } catch (_) {
-      // still show success for UX; data is stored locally
-    }
-
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-
+    
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
     setIsSubmitting(false);
     setSubmitStatus("success");
     setFormData({ name: "", email: "", company: "", phone: "", services: [], budget: "", message: "" });
-
+    
     setTimeout(() => setSubmitStatus("idle"), 3000);
   };
 

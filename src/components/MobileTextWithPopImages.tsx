@@ -54,7 +54,7 @@ const MobileTextWithPopImages = ({ blocks, className = "" }: MobileTextWithPopIm
   return (
     <section
       ref={sectionRef}
-      className={`md:hidden px-6 py-12 bg-background ${className}`}
+      className={`md:hidden px-6 pt-4 pb-12 bg-background -mt-64 ${className}`}
     >
       <div className="max-w-lg mx-auto">
         <p className="font-hero text-lg sm:text-xl text-foreground/90 leading-relaxed flex flex-wrap items-center gap-x-2 gap-y-3">

@@ -156,10 +156,7 @@ const WebsitesSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="min-h-screen md:min-h-[300vh] flex flex-col items-center justify-center py-20 md:py-16 px-4 md:px-12 lg:px-24 relative overflow-hidden"
-      style={{ 
-        marginTop: window.innerWidth >= 768 ? '-20cm' : '-3cm'  // 20cm up on desktop, 3cm on mobile
-      }}
+      className="min-h-screen md:min-h-[300vh] flex flex-col items-center justify-center pt-0 pb-20 md:py-16 px-4 md:px-12 lg:px-24 relative overflow-hidden -mt-[40rem] md:-mt-[20cm]"
     >
       {/* Metallic 3D dots with some orange */}
       {dots.map((dot, index) => (

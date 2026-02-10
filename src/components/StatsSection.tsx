@@ -25,11 +25,11 @@ const StatsSection = () => {
       if (!statElement) return;
 
       const stat = stats[index];
-      const numberElement = statElement.querySelector(".stat-number");
+      const numberElements = statElement.querySelectorAll(".stat-number");
       const labelElement = statElement.querySelector(".stat-label");
       const progressCircle = statElement.querySelector(".progress-circle") as SVGCircleElement;
 
-      if (!numberElement || !labelElement) return;
+      if (!numberElements.length || !labelElement) return;
 
       // Animate the container
       gsap.from(statElement, {
@@ -61,14 +61,12 @@ const StatsSection = () => {
           scrub: 1,
         },
         onUpdate: () => {
-          if (numberElement) {
-            numberElement.textContent = `${stat.prefix}${Math.round(counter.value)}`;
-          }
-          
+          const text = `${stat.prefix}${Math.round(counter.value)}`;
+          numberElements.forEach((el) => { el.textContent = text; });
           // Mobile: Animate circular progress
           if (isMobile && progressCircle) {
             const progress = counter.value / stat.value;
-            const circumference = 2 * Math.PI * 45; // radius = 45
+            const circumference = 2 * Math.PI * 45;
             const offset = circumference - (progress * circumference);
             progressCircle.style.strokeDashoffset = offset.toString();
           }

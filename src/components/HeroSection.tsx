@@ -66,7 +66,7 @@ const HeroSection = () => {
   return (
     <section 
       ref={sectionRef}
-      className="h-screen flex items-start md:items-center justify-start md:justify-center pt-24 md:pt-0 px-4 md:px-12 relative overflow-hidden bg-background"
+      className="min-h-screen md:h-screen flex flex-col md:flex-row items-center justify-center pt-24 md:pt-0 px-4 md:px-12 pb-0 md:pb-0 relative overflow-hidden bg-background"
     >
       {/* Metallic 3D dots with some orange */}
       {dots.map((dot, index) => (
@@ -123,109 +123,119 @@ const HeroSection = () => {
         </h1>
       </div>
 
-      {/* Mobile-only: Enhanced hero with scroll effects */}
-      <div className="md:hidden w-full relative z-50">
-        <div className="space-y-6 rounded-3xl bg-black/40 border border-white/10 px-5 py-6 backdrop-blur-md shadow-[0_18px_45px_rgba(0,0,0,0.85)]">
-          {/* Eyebrow label */}
-          <p className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-500/15 border border-orange-400/40 text-[10px] font-semibold tracking-[0.25em] uppercase text-orange-200">
-            Digital products studio
-          </p>
-
-          {/* Hero Title */}
-          <h1 
-            className="font-hero text-[2.6rem] leading-tight font-extrabold uppercase text-transparent bg-clip-text"
+      {/* Mobile-only: Compact hero — headline, subtitle with inline image, CTA, stats, marquee */}
+      <div className="md:hidden w-full relative z-50 flex flex-col min-h-[92vh] pt-6">
+        {/* Top: Headline + sub with inline image + CTA */}
+        <div className="px-1 text-left">
+          <h1
+            className="font-hero text-[2.5rem] leading-[1.05] font-extrabold uppercase text-transparent bg-clip-text"
             style={{
-              backgroundImage: 'linear-gradient(135deg, #ffffff 0%, #ffe0c0 40%, #FF8C00 100%)',
-              textShadow: '0 8px 30px rgba(0,0,0,0.8)',
+              backgroundImage: "linear-gradient(135deg, #fff 0%, #ffe0c0 50%, #FF8C00 100%)",
             }}
           >
-            LET'S BUILD<br />
+            LET&apos;S BUILD
+            <br />
             WHAT&apos;S NEXT
           </h1>
-          
-          {/* Value Propositions - orange and white with word spacing */}
-          <div className="space-y-3 text-sm font-medium leading-relaxed text-foreground/85">
-            <p>
-              We turn <span className="text-orange-400 font-semibold">personal brands</span> into{" "}
-              <span className="text-orange-400 font-semibold">digital machines</span>.
-            </p>
-            <p>
-              We turn <span className="text-orange-400 font-semibold">influence</span> into{" "}
-              <span className="text-orange-400 font-semibold">revenue</span> with products that sell for you.
-            </p>
-          </div>
 
-          {/* Agency-focused CTA Buttons */}
-          <div className="flex flex-col gap-3 pt-1">
-            <a 
-              href="/contact"
-              className="px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white font-hero uppercase tracking-wider text-sm rounded-full text-center transition-all duration-300 active:scale-95 relative overflow-hidden"
-              style={{
-                boxShadow: '0 14px 30px rgba(255, 140, 0, 0.55)',
-              }}
-            >
-              <span className="absolute inset-0 bg-white/20 opacity-0 hover:opacity-20 transition-opacity" />
-              Start Your Project
-            </a>
-            <a 
-              href="/contact"
-              className="px-8 py-4 bg-black/40 border border-orange-500/60 hover:border-orange-400 text-white font-hero uppercase tracking-wider text-sm rounded-full text-center transition-all duration-300 active:scale-95"
-            >
-              Get Free Consultation
-            </a>
-          </div>
+          <p className="text-base text-foreground/80 leading-relaxed max-w-xs mt-4 flex flex-wrap items-center gap-x-1.5">
+            <span>We turn</span>
+            <span className="text-orange-400 font-medium">ideas</span>
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=120&h=80&fit=crop"
+              alt=""
+              className="inline-block w-14 h-[36px] rounded object-cover border border-white/10 shrink-0 -my-1"
+            />
+            <span>into</span>
+            <span className="text-orange-400 font-medium">digital products</span>
+            <span>that grow brands and drive revenue.</span>
+          </p>
 
-          {/* Quick Metrics - Updated */}
-          <div className="grid grid-cols-3 gap-3 pt-3">
-            <div className="text-center p-3 bg-black/40 rounded-xl border border-white/10">
-              <div className="text-2xl font-bold text-orange-400">50+</div>
-              <div className="text-[10px] text-foreground/60 uppercase mt-1 tracking-wide">Projects</div>
-            </div>
-            <div className="text-center p-3 bg-black/40 rounded-xl border border-white/10">
-              <div className="text-2xl font-bold text-orange-400">✓</div>
-              <div className="text-[10px] text-foreground/60 uppercase mt-1 tracking-wide">Proven Results</div>
-            </div>
-            <div className="text-center p-3 bg-black/40 rounded-xl border border-white/10">
-              <div className="text-2xl font-bold text-orange-400">∞</div>
-              <div className="text-[10px] text-foreground/60 uppercase mt-1 tracking-wide">Ongoing Support</div>
-            </div>
-          </div>
+          <a
+            href="/contact"
+            className="relative inline-flex items-center gap-2 mt-5 px-7 py-3.5 bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500 text-white font-hero uppercase tracking-wider text-sm rounded-full transition-all active:scale-95 shadow-lg shadow-orange-500/50 hover:shadow-xl hover:shadow-orange-500/60 overflow-hidden group"
+            style={{
+              backgroundSize: '200% 100%',
+              animation: 'shimmer 3s linear infinite'
+            }}
+          >
+            <span className="relative z-10">Get in touch</span>
+            <span className="text-lg leading-none relative z-10">→</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -skew-x-12"></div>
+          </a>
+        </div>
 
-          {/* Who We Help */}
-          <div className="mt-6 p-4 bg-black/30 rounded-2xl border border-white/10">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-orange-500 mb-3">Who We Help</h3>
-            <div className="flex flex-wrap gap-2">
-              {['Influencers', 'Startups', 'SMEs', 'Personal Brands', 'E-commerce'].map((tag, i) => (
-                <span 
-                  key={i}
-                  className="px-3 py-1.5 bg-black/10 rounded-full text-xs font-medium text-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+        {/* Stats row */}
+        <div className="grid grid-cols-3 gap-3 px-1 mt-10">
+          <div className="text-center py-3 rounded-xl bg-white/5 border border-white/10">
+            <div className="text-2xl font-bold text-orange-400">50+</div>
+            <div className="text-[10px] text-foreground/50 uppercase tracking-wide mt-0.5">Projects</div>
           </div>
+          <div className="text-center py-3 rounded-xl bg-white/5 border border-white/10">
+            <div className="text-2xl font-bold text-orange-400">2+</div>
+            <div className="text-[10px] text-foreground/50 uppercase tracking-wide mt-0.5">Years</div>
+          </div>
+          <div className="text-center py-3 rounded-xl bg-white/5 border border-white/10">
+            <div className="text-2xl font-bold text-orange-400">∞</div>
+            <div className="text-[10px] text-foreground/50 uppercase tracking-wide mt-0.5">Support</div>
+          </div>
+        </div>
 
-          {/* Testimonial with Real Name */}
-          <div className="mt-4 p-4 bg-black/40 rounded-2xl border border-white/10">
-            <div className="flex items-start gap-3">
-              <div className="flex-shrink-0">
-                <div className="w-12 h-12 rounded-full bg-orange-500/20 flex items-center justify-center text-orange-500 text-2xl font-bold">
-                  R
-                </div>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="text-sm text-foreground/80 italic leading-relaxed mb-2">
-                  "NextMind transformed our online presence completely. Revenue up 300% in 6 months!"
-                </p>
-                <p className="text-xs text-foreground/60 font-semibold">
-                  — Rawan Khalil, Content Creator & Brand Consultant
-                </p>
-              </div>
+        {/* What we do marquee */}
+        <div className="w-full overflow-hidden mt-12 pb-6">
+          <p className="text-xs text-foreground/40 uppercase tracking-widest text-center mb-3">
+            What we do
+          </p>
+          <div className="relative overflow-hidden">
+            <div className="hero-marquee flex flex-nowrap whitespace-nowrap text-foreground/90 font-bold text-2xl">
+              <span className="hero-marquee-track inline-flex items-center gap-5 pr-5 shrink-0">
+                <span>Websites</span>
+                <span className="text-orange-500">·</span>
+                <span>Apps</span>
+                <span className="text-orange-500">·</span>
+                <span>AI</span>
+                <span className="text-orange-500">·</span>
+                <span>Branding</span>
+                <span className="text-orange-500">·</span>
+                <span>E-commerce</span>
+                <span className="text-orange-500">·</span>
+              </span>
+              <span className="hero-marquee-track inline-flex items-center gap-5 pr-5 shrink-0" aria-hidden="true">
+                <span>Websites</span>
+                <span className="text-orange-500">·</span>
+                <span>Apps</span>
+                <span className="text-orange-500">·</span>
+                <span>AI</span>
+                <span className="text-orange-500">·</span>
+                <span>Branding</span>
+                <span className="text-orange-500">·</span>
+                <span>E-commerce</span>
+                <span className="text-orange-500">·</span>
+              </span>
             </div>
           </div>
         </div>
       </div>
+
+      <style>{`
+        .hero-marquee {
+          display: flex;
+          width: max-content;
+          animation: hero-marquee-scroll 12s linear infinite;
+        }
+        .hero-marquee-track {
+          display: inline-flex;
+          align-items: center;
+        }
+        @keyframes hero-marquee-scroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes shimmer {
+          0% { background-position: 200% 0; }
+          100% { background-position: -200% 0; }
+        }
+      `}</style>
 
     </section>
   );
