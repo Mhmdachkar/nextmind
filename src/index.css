@@ -57,7 +57,11 @@ body {
 
 html {
   overflow-x: hidden;
+  /* Lenis handles smooth scroll; avoid native smooth to prevent double effect */
+  scroll-behavior: auto;
 }
+
+/* Apple-style heavy scroll: handled by Lenis in SmoothScroll.tsx */
 
 /* Mobile View: Compact sections with no extra space */
 @media (max-width: 768px) {
