@@ -43,8 +43,7 @@ const HeroSection = ({ onEntranceComplete }: HeroSectionProps) => {
     // Check if user has seen the entrance (session storage)
     const hasSeenEntrance = sessionStorage.getItem('heroEntranceSeen');
 
-    // Run the full entrance once per session on BOTH desktop and mobile
-    if (!hasSeenEntrance) {
+    if (!isMobile && !hasSeenEntrance) {
       // Fewer particles for performance (transform + opacity only)
       const particleCount = 24;
       for (let i = 0; i < particleCount; i++) {
@@ -83,14 +82,7 @@ const HeroSection = ({ onEntranceComplete }: HeroSectionProps) => {
           // Mark as seen for this session
           sessionStorage.setItem('heroEntranceSeen', 'true');
 
-          // On mobile we skip the scroll-based scale effect for simplicity
-          if (isMobile) {
-            setEntranceComplete(true);
-            onEntranceComplete?.();
-            return;
-          }
-
-          // Desktop: Setup scroll animation AFTER entrance, then signal completion
+          // Setup scroll animation AFTER entrance, then signal completion
           requestAnimationFrame(() => {
             requestAnimationFrame(() => {
               const scrollTl = gsap.timeline({
@@ -112,7 +104,7 @@ const HeroSection = ({ onEntranceComplete }: HeroSectionProps) => {
                 force3D: true,
               });
 
-              // Only once ScrollTrigger is wired up do we reveal the rest of the page
+              // Only once scrollTrigger is wired up do we reveal the rest of the page
               setEntranceComplete(true);
               onEntranceComplete?.();
             });
@@ -266,8 +258,8 @@ const HeroSection = ({ onEntranceComplete }: HeroSectionProps) => {
       });
     }
 
-    // Mobile: if entrance was already seen this session, mark as complete immediately
-    if (isMobile && hasSeenEntrance) {
+    // Mobile: no cinematic entrance, immediately mark as complete
+    if (isMobile) {
       setEntranceComplete(true);
       onEntranceComplete?.();
     }
@@ -338,8 +330,8 @@ const HeroSection = ({ onEntranceComplete }: HeroSectionProps) => {
         />
       ))}
 
-      {/* Entrance animation elements (now also visible on mobile) */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none" style={{ zIndex: 50 }}>
+      {/* Desktop: Entrance animation elements */}
+      <div className="absolute inset-0 hidden md:flex flex-col items-center justify-center pointer-events-none" style={{ zIndex: 50 }}>
         {/* Particles container */}
         <div 
           ref={particlesRef}
