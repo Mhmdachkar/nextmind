@@ -4,7 +4,6 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CustomCursor from "@/components/CustomCursor";
-import SmoothScroll from "@/components/SmoothScroll";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import Work from "./pages/Work";
@@ -17,7 +16,6 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <SmoothScroll />
       <CustomCursor />
       <Toaster />
       <Sonner />
