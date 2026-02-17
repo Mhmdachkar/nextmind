@@ -1,45 +1,49 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import bexyFlowers from "@/assets/images/bexyflowers.png";
+import travelAgency from "@/assets/images/travel agency.png";
+import aiScanner from "@/assets/images/ai scanner.jpg";
+import hospitalManagement from "@/assets/images/aya beauty hospital mangment.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "Manchester United X Marriott",
-    description: "Connecting fans with their player's stories",
-    tags: ["DESIGN", "DEVELOPMENT", "3D"],
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=700&fit=crop",
-    duration: "6 months",
-    result: "+250% engagement",
-    client: "Marriott Hotels",
-  },
-  {
-    title: "Nova AI Platform",
-    description: "Next-gen artificial intelligence dashboard",
-    tags: ["AI", "DEVELOPMENT", "UI/UX"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=700&fit=crop",
-    duration: "8 months",
-    result: "500K+ users",
-    client: "Nova Tech",
-  },
-  {
-    title: "Creative Brand Studio",
-    description: "Branding & Social Media Specialist",
-    tags: ["BRANDING", "SOCIAL MEDIA", "DESIGN"],
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&h=700&fit=crop",
+    title: "Bexy Flowers",
+    description: "An elegant e-commerce experience for a premium flower shop — browsing, ordering, and gifting made beautiful.",
+    tags: ["DESIGN", "E-COMMERCE", "DEVELOPMENT"],
+    image: bexyFlowers,
     duration: "3 months",
-    result: "+400% followers",
-    client: "Brand Media",
+    result: "+180% orders",
+    client: "Bexy Flowers",
   },
   {
-    title: "RetailPro POS",
-    description: "Modern point of sale system redesign",
-    tags: ["DESIGN", "POS", "MOBILE"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=700&fit=crop",
+    title: "AI Travel Agency",
+    description: "Smart travel platform with an AI assistant that plans your trip based on destination, budget, and preferences.",
+    tags: ["AI", "DEVELOPMENT", "UI/UX"],
+    image: travelAgency,
     duration: "5 months",
-    result: "50% faster checkout",
-    client: "RetailPro Inc",
+    result: "3x bookings",
+    client: "Travel Agency",
+  },
+  {
+    title: "Scanner — Price Finder App",
+    description: "Mobile app for Lebanon: scan any item and instantly find the best prices across local markets.",
+    tags: ["MOBILE APP", "AI", "DEVELOPMENT"],
+    image: aiScanner,
+    duration: "6 months",
+    result: "Live in Lebanon",
+    client: "Scanner App",
+  },
+  {
+    title: "Hospital Management System",
+    description: "Full-scale hospital operations platform — patient records, scheduling, staff management, and reporting.",
+    tags: ["DEVELOPMENT", "UI/UX", "SYSTEM"],
+    image: hospitalManagement,
+    duration: "8 months",
+    result: "Full automation",
+    client: "Hospital",
   },
 ];
 

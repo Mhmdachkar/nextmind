@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import bexyFlowers from "@/assets/images/bexyflowers.png";
+import curlea from "@/assets/images/curlea.png";
+import aiFlower from "@/assets/images/ai flower .png";
+import aiTravel from "@/assets/images/ai travel .png";
+import aiScanner from "@/assets/images/ai scanner.jpg";
+import hospitalManagement from "@/assets/images/aya beauty hospital mangment.png";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileEnhancements from "@/components/MobileEnhancements";
@@ -12,67 +18,67 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     id: 1,
-    title: "Neural Commerce",
+    title: "Bexy Flowers",
     category: "E-Commerce",
     type: "Website",
-    image: "https://images.unsplash.com/photo-1661956602116-aa6865609028?w=1200&h=800&fit=crop",
+    image: bexyFlowers,
     year: "2024",
   },
   {
     id: 2,
-    title: "Quantum Analytics",
-    category: "Dashboard",
+    title: "AI Travel Agency",
+    category: "Travel + AI",
     type: "Web App",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=800&fit=crop",
+    image: aiTravel,
     year: "2024",
   },
   {
     id: 3,
-    title: "Mindful Wellness",
-    category: "Health",
-    type: "Mobile",
-    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&h=800&fit=crop",
-    year: "2023",
+    title: "Curlea",
+    category: "Hair Care",
+    type: "Website",
+    image: curlea,
+    year: "2024",
   },
   {
     id: 4,
-    title: "Urban Mobility",
-    category: "Transport",
-    type: "Mobile",
-    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=1200&h=800&fit=crop",
-    year: "2023",
+    title: "AI Tutor",
+    category: "Education",
+    type: "AI Platform",
+    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=1200&h=800&fit=crop",
+    year: "2024",
   },
   {
     id: 5,
-    title: "Creative Studio",
-    category: "Design",
+    title: "Scanner App",
+    category: "Price Comparison",
+    type: "Mobile App",
+    image: aiScanner,
+    year: "2025",
+  },
+  {
+    id: 6,
+    title: "Portfolio Collection",
+    category: "Branding + Design",
     type: "Website",
     image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=800&fit=crop",
     year: "2024",
   },
   {
-    id: 6,
-    title: "FinTech Pro",
-    category: "Finance",
-    type: "Web App",
-    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=800&fit=crop",
-    year: "2024",
-  },
-  {
     id: 7,
-    title: "EduLearn",
-    category: "Education",
-    type: "Mobile",
-    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1200&h=800&fit=crop",
-    year: "2023",
+    title: "AI Flower Designer",
+    category: "AI + E-Commerce",
+    type: "AI Platform",
+    image: aiFlower,
+    year: "2025",
   },
   {
     id: 8,
-    title: "FoodHub",
-    category: "Food Delivery",
-    type: "Website",
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=1200&h=800&fit=crop",
-    year: "2024",
+    title: "Hospital Management",
+    category: "Healthcare",
+    type: "System",
+    image: hospitalManagement,
+    year: "2025",
   },
 ];
 
@@ -614,46 +620,156 @@ const Work = () => {
             </p>
           </div>
 
-          {/* Bento Grid Layout */}
-          <div id="portfolio-grid" className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-12 gap-3 md:gap-4 auto-rows-[140px] md:auto-rows-[200px]">
-            {projects.map((project, index) => {
-              const gridClasses = [
-                "col-span-2 md:col-span-4 row-span-1 md:row-span-2",
-                "col-span-2 md:col-span-4 row-span-1 md:row-span-3",
-                "col-span-2 md:col-span-4 row-span-1 md:row-span-2",
-                "col-span-2 md:col-span-8 row-span-1 md:row-span-2",
-                "col-span-2 md:col-span-4 row-span-1 md:row-span-3",
-                "col-span-2 md:col-span-4 row-span-1 md:row-span-2",
-                "col-span-2 md:col-span-4 row-span-1 md:row-span-2",
-                "col-span-2 md:col-span-4 row-span-1 md:row-span-3",
-              ];
-
+          {/* Bento Grid Layout — Landscape for websites/systems, Portrait for AI/mobile */}
+          {/* Mobile: simple single column stack */}
+          <div className="md:hidden flex flex-col gap-4" id="portfolio-grid">
+            {projects.map((project) => {
+              const isPortrait = ["AI Platform", "Mobile App"].includes(project.type);
               return (
                 <div
                   key={project.id}
-                  ref={(el) => {
-                    if (el) backgroundImagesRef.current[index] = el;
-                  }}
-                  className={`${gridClasses[index]} group relative overflow-hidden rounded-xl cursor-pointer`}
+                  className={`group relative overflow-hidden rounded-xl cursor-pointer ${isPortrait ? "aspect-[9/16]" : "aspect-video"}`}
                 >
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">
-                      {project.type}
-                    </p>
-                    <h3 className="font-hero text-lg font-bold uppercase text-white">
-                      {project.title}
-                    </h3>
+                  <img src={project.image} alt={project.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{project.type}</p>
+                    <h3 className="font-hero text-lg font-bold uppercase text-white">{project.title}</h3>
                     <p className="text-xs text-white/70 mt-1">{project.category}</p>
                   </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* Desktop: Explicit bento grid — landscape vs portrait */}
+          <div
+            id="portfolio-grid"
+            className="hidden md:grid max-w-7xl mx-auto gap-4"
+            style={{
+              gridTemplateColumns: "repeat(12, 1fr)",
+              gridAutoRows: "200px",
+            }}
+          >
+            {/* Row 1-2: Bexy Flowers — full width landscape */}
+            <div
+              ref={(el) => { if (el) backgroundImagesRef.current[0] = el; }}
+              className="group relative overflow-hidden rounded-xl cursor-pointer"
+              style={{ gridColumn: "1 / 13", gridRow: "1 / 3" }}
+            >
+              <img src={projects[0].image} alt={projects[0].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[0].type}</p>
+                <h3 className="font-hero text-2xl font-bold uppercase text-white">{projects[0].title}</h3>
+                <p className="text-sm text-white/70 mt-1">{projects[0].category}</p>
+              </div>
+            </div>
+
+            {/* Row 3-4: AI Travel (wide landscape) */}
+            <div
+              ref={(el) => { if (el) backgroundImagesRef.current[1] = el; }}
+              className="group relative overflow-hidden rounded-xl cursor-pointer"
+              style={{ gridColumn: "1 / 9", gridRow: "3 / 5" }}
+            >
+              <img src={projects[1].image} alt={projects[1].title} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[1].type}</p>
+                <h3 className="font-hero text-xl font-bold uppercase text-white">{projects[1].title}</h3>
+                <p className="text-sm text-white/70 mt-1">{projects[1].category}</p>
+              </div>
+            </div>
+
+            {/* Row 3-6: AI Tutor — portrait/reel (spans 4 rows) */}
+            <div
+              ref={(el) => { if (el) backgroundImagesRef.current[3] = el; }}
+              className="group relative overflow-hidden rounded-xl cursor-pointer"
+              style={{ gridColumn: "9 / 13", gridRow: "3 / 7" }}
+            >
+              <img src={projects[3].image} alt={projects[3].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[3].type}</p>
+                <h3 className="font-hero text-xl font-bold uppercase text-white">{projects[3].title}</h3>
+                <p className="text-sm text-white/70 mt-1">{projects[3].category}</p>
+              </div>
+            </div>
+
+            {/* Row 5-6: Curlea — wide landscape */}
+            <div
+              ref={(el) => { if (el) backgroundImagesRef.current[2] = el; }}
+              className="group relative overflow-hidden rounded-xl cursor-pointer"
+              style={{ gridColumn: "1 / 9", gridRow: "5 / 7" }}
+            >
+              <img src={projects[2].image} alt={projects[2].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[2].type}</p>
+                <h3 className="font-hero text-xl font-bold uppercase text-white">{projects[2].title}</h3>
+                <p className="text-sm text-white/70 mt-1">{projects[2].category}</p>
+              </div>
+            </div>
+
+            {/* Row 7-10: Scanner — portrait/reel */}
+            <div
+              ref={(el) => { if (el) backgroundImagesRef.current[4] = el; }}
+              className="group relative overflow-hidden rounded-xl cursor-pointer"
+              style={{ gridColumn: "1 / 5", gridRow: "7 / 11" }}
+            >
+              <img src={projects[4].image} alt={projects[4].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[4].type}</p>
+                <h3 className="font-hero text-xl font-bold uppercase text-white">{projects[4].title}</h3>
+                <p className="text-sm text-white/70 mt-1">{projects[4].category}</p>
+              </div>
+            </div>
+
+            {/* Row 7-8: Portfolio — landscape */}
+            <div
+              ref={(el) => { if (el) backgroundImagesRef.current[5] = el; }}
+              className="group relative overflow-hidden rounded-xl cursor-pointer"
+              style={{ gridColumn: "5 / 9", gridRow: "7 / 9" }}
+            >
+              <img src={projects[5].image} alt={projects[5].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[5].type}</p>
+                <h3 className="font-hero text-xl font-bold uppercase text-white">{projects[5].title}</h3>
+                <p className="text-sm text-white/70 mt-1">{projects[5].category}</p>
+              </div>
+            </div>
+
+            {/* Row 7-10: AI Flower Designer — portrait/reel */}
+            <div
+              ref={(el) => { if (el) backgroundImagesRef.current[6] = el; }}
+              className="group relative overflow-hidden rounded-xl cursor-pointer"
+              style={{ gridColumn: "9 / 13", gridRow: "7 / 11" }}
+            >
+              <img src={projects[6].image} alt={projects[6].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[6].type}</p>
+                <h3 className="font-hero text-xl font-bold uppercase text-white">{projects[6].title}</h3>
+                <p className="text-sm text-white/70 mt-1">{projects[6].category}</p>
+              </div>
+            </div>
+
+            {/* Row 9-10: Hospital Management — landscape */}
+            <div
+              ref={(el) => { if (el) backgroundImagesRef.current[7] = el; }}
+              className="group relative overflow-hidden rounded-xl cursor-pointer"
+              style={{ gridColumn: "5 / 9", gridRow: "9 / 11" }}
+            >
+              <img src={projects[7].image} alt={projects[7].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[7].type}</p>
+                <h3 className="font-hero text-xl font-bold uppercase text-white">{projects[7].title}</h3>
+                <p className="text-sm text-white/70 mt-1">{projects[7].category}</p>
+              </div>
+            </div>
           </div>
         </section>
 
