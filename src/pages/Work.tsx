@@ -94,7 +94,7 @@ const projects = [
 const stats = [
   { number: "150+", label: "Projects Completed" },
   { number: "50+", label: "Happy Clients" },
-  { number: "15+", label: "Awards Won" },
+  { number: "∞", label: "Ongoing Support" },
   { number: "8", label: "Years Experience" },
 ];
 

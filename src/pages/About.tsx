@@ -20,7 +20,7 @@ const teamMembers = [
     name: "Sarah Johnson",
     role: "Creative Director",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-    bio: "Award-winning designer crafting memorable experiences",
+    bio: "Designer crafting memorable experiences",
   },
   {
     name: "Marcus Rodriguez",
@@ -62,7 +62,7 @@ const values = [
 const stats = [
   { number: "150+", label: "Projects Delivered" },
   { number: "50+", label: "Happy Clients" },
-  { number: "15+", label: "Industry Awards" },
+  { number: "∞", label: "Ongoing Support" },
   { number: "2+", label: "Years of Excellence" },
 ];
 

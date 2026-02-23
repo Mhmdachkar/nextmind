@@ -25,20 +25,24 @@ const services = [
 
 const faqs = [
   {
-    question: "What is your typical project timeline?",
-    answer: "Project timelines vary based on scope and complexity. A typical website takes 4-8 weeks, while larger applications may take 3-6 months. We'll provide a detailed timeline during our initial consultation.",
+    question: "What makes Next Mind different from other studios?",
+    answer: "We're a small senior studio: strategy, design, and build under one roof, with ongoing launch support. We move fast, communicate clearly, and focus on quality over volume.",
   },
   {
-    question: "Do you offer ongoing support?",
-    answer: "Yes! We provide comprehensive maintenance and support packages to ensure your digital products continue to perform optimally after launch.",
+    question: "How long does it take to build a website or app?",
+    answer: "It depends on scope. A typical website is 4–8 weeks; larger apps or AI products can be 2–4 months. We'll give you a clear timeline and milestones in our first conversation.",
   },
   {
-    question: "What is your pricing structure?",
-    answer: "We offer flexible pricing models including fixed-price projects, hourly rates, and retainer agreements. Contact us for a custom quote based on your specific needs.",
+    question: "Do you work with startups or only established brands?",
+    answer: "Both. We work with founders, startups, and established brands. What matters is a clear vision and a willingness to collaborate—not company size.",
   },
   {
-    question: "Can you work with our existing team?",
-    answer: "Absolutely! We're experienced in collaborating with in-house teams and can seamlessly integrate into your existing workflows and processes.",
+    question: "What's included in your ongoing support?",
+    answer: "Post-launch we offer maintenance, updates, and support so your product keeps performing. We can tailor a retainer to your needs—from bug fixes to new features.",
+  },
+  {
+    question: "How do we get started?",
+    answer: "Reach out via the form, email, or WhatsApp. We'll schedule a short call to understand your goals, then send a proposal and timeline. No commitment until you're ready.",
   },
 ];
 
@@ -58,6 +62,7 @@ const Contact = () => {
   const formRef = useRef<HTMLDivElement>(null);
   const infoCardsRef = useRef<HTMLDivElement>(null);
   const [hoveredLetter, setHoveredLetter] = useState<number | null>(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -527,6 +532,54 @@ const Contact = () => {
                 )}
               </div>
             </form>
+          </div>
+        </section>
+
+        {/* FAQ Section - dark theme */}
+        <section className="bg-background border-t border-foreground/10 px-6 md:px-12 py-16 md:py-24">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:gap-16 lg:gap-24">
+            <div className="md:w-2/5 mb-10 md:mb-0">
+              <h2 className="font-hero text-4xl md:text-5xl lg:text-6xl font-bold uppercase text-foreground mb-4">
+                FAQs
+              </h2>
+              <p className="text-foreground/70 text-base md:text-lg">
+                Because guessing wastes time. Here's the truth.
+              </p>
+            </div>
+            <div className="md:flex-1 space-y-3">
+              {faqs.map((faq, index) => (
+                <div
+                  key={index}
+                  className="rounded-xl border border-foreground/20 bg-foreground/[0.03] overflow-hidden transition-colors hover:border-foreground/30"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                    className="w-full flex items-center gap-4 text-left px-5 py-4 md:px-6 md:py-5 focus:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
+                  >
+                    <span className="w-2 h-2 rounded-full bg-orange-500 flex-shrink-0" aria-hidden />
+                    <span className="font-hero text-sm md:text-base text-foreground flex-1 pr-4">
+                      {faq.question}
+                    </span>
+                    <span
+                      className={`flex-shrink-0 w-8 h-8 rounded-full border border-foreground/30 flex items-center justify-center text-foreground transition-transform duration-200 ${openFaqIndex === index ? "rotate-45" : ""}`}
+                      aria-hidden
+                    >
+                      +
+                    </span>
+                  </button>
+                  <div
+                    className={`grid transition-[grid-template-rows] duration-200 ${openFaqIndex === index ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="px-5 pb-4 md:px-6 md:pb-5 pt-0 text-foreground/70 text-sm md:text-base leading-relaxed border-t border-foreground/10">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
