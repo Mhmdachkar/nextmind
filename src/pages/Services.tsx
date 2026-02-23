@@ -6,6 +6,10 @@ import Footer from "@/components/Footer";
 import MobileEnhancements from "@/components/MobileEnhancements";
 import { MobileAnimatedSection } from "@/components/MobileAnimatedSection";
 import MobileScrollTextReveal from "@/components/MobileScrollTextReveal";
+import aiAutomationImage from "@/assets/images/ai automation.jpg";
+import aiSolutionImage from "@/assets/images/ai solution.jpg";
+import websiteImage from "@/assets/images/website.jpg";
+import chatbotImage from "@/assets/images/chatbot.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,14 +19,14 @@ const services = [
     title: "AI Solutions",
     description: "Custom AI integration and automation to transform your business operations",
     features: ["Machine Learning", "Natural Language Processing", "Predictive Analytics", "AI Chatbots"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+    image: aiSolutionImage,
   },
   {
     id: "02",
     title: "Web Development",
     description: "Modern, responsive websites built with cutting-edge technologies",
     features: ["React & Next.js", "Custom CMS", "E-commerce", "Progressive Web Apps"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    image: websiteImage,
   },
   {
     id: "03",
@@ -36,14 +40,14 @@ const services = [
     title: "AI Automation",
     description: "Streamline workflows with intelligent automation solutions",
     features: ["Process Automation", "Data Processing", "API Integration", "Workflow Optimization"],
-    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=600&fit=crop",
+    image: aiAutomationImage,
   },
   {
     id: "05",
     title: "ChatBot Development",
     description: "Intelligent conversational AI for customer engagement",
     features: ["24/7 Support", "Multi-platform", "Natural Conversations", "Analytics Dashboard"],
-    image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&h=600&fit=crop",
+    image: chatbotImage,
   },
   {
     id: "06",
