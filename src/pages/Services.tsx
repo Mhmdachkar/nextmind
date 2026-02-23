@@ -749,6 +749,9 @@ const Services = () => {
               Get Started
             </a>
           </div>
+
+          {/* Soften the bottom edge into the black footer */}
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent via-black/40 to-black z-[5]" />
         </section>
       </main>
 

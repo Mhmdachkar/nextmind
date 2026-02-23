@@ -84,8 +84,8 @@ const projects = [
   {
     id: 9,
     title: "KHA Mobile",
-    category: "Mobile App",
-    type: "Mobile App",
+    category: "Website",
+    type: "Website",
     image: khaMobile,
     year: "2025",
   },
@@ -780,13 +780,13 @@ const Work = () => {
               </div>
             </div>
 
-            {/* Row 11-14: KHA Mobile — portrait/reel (full width of right side) */}
+            {/* Row 11-12: KHA Mobile — full width landscape (website) */}
             <div
               ref={(el) => { if (el) backgroundImagesRef.current[8] = el; }}
               className="group relative overflow-hidden rounded-xl cursor-pointer"
-              style={{ gridColumn: "1 / 5", gridRow: "11 / 15" }}
+              style={{ gridColumn: "1 / 13", gridRow: "11 / 13" }}
             >
-              <img src={projects[8].image} alt={projects[8].title} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              <img src={projects[8].image} alt={projects[8].title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                 <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[8].type}</p>
@@ -798,7 +798,7 @@ const Work = () => {
         </section>
 
         {/* CTA Section - Orange Background */}
-        <section 
+        <section
           className="min-h-screen flex items-center justify-center px-6 md:px-12 relative overflow-hidden"
           style={{
             background: 'linear-gradient(135deg, #FF8C00 0%, #ff6600 50%, #FF8C00 100%)',
@@ -847,6 +847,8 @@ const Work = () => {
               Start a Project
             </a>
           </div>
+          {/* Soften the bottom edge into the black footer */}
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent via-black/40 to-black z-[5]" />
         </section>
       </main>
 

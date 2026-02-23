@@ -436,8 +436,9 @@ const About = () => {
               return (
                 <div
                   key={index}
-                  className="value-tape absolute bg-orange-600 flex items-center justify-center px-4 md:px-8"
+                  className="value-tape absolute flex items-center justify-center px-4 md:px-8"
                   style={{
+                    background: 'rgb(255, 125, 0)',
                     height: '3cm',
                     width: '120%',
                     left: '-10%',
@@ -564,6 +565,8 @@ const About = () => {
               </div>
             </div>
           </div>
+          {/* Soften the bottom edge into the black footer */}
+          <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent via-black/40 to-black z-[5]" />
         </section>
         </main>
 

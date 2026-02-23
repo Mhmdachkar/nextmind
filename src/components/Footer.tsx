@@ -52,9 +52,9 @@ const Footer = () => {
       });
     }
 
-    // Create gooey particles – desktop: rich effect; mobile: lighter so it shows on Android/iOS
-    if (particleContainer) {
-      const particleCount = isMobile ? 55 : 120;
+    // Create gooey particles – desktop only
+    if (particleContainer && !isMobile) {
+      const particleCount = 120;
       const fragment = document.createDocumentFragment();
 
       for (let i = 0; i < particleCount; i++) {
@@ -138,7 +138,7 @@ const Footer = () => {
         .particle-diagonal,
         .particle-wave {
           position: absolute;
-          background: #FF8C00;
+          background: rgb(249, 115, 22);
           border-radius: 50%;
           top: 50%;
           left: var(--pos-x, 50%);
@@ -261,7 +261,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section - Orange Background with Gooey Effect */}
-        <div className="relative min-h-[240px] md:min-h-[250px] pb-8" style={{ background: '#FF8C00' }}>
+        <div className="relative min-h-[240px] md:min-h-[250px] pb-8" style={{ background: 'rgb(249, 115, 22)' }}>
           {/* Gooey strip: visible on all devices (mobile + desktop) */}
           <div
             ref={particleContainerRef}
@@ -273,7 +273,7 @@ const Footer = () => {
               left: '-10%',
               height: 'clamp(6rem, 18vw, 8rem)',
               minHeight: '6rem',
-              background: '#FF8C00',
+              background: 'rgb(249, 115, 22)',
               transform: 'translateY(-99%)',
               zIndex: 0,
               WebkitFilter: 'url(#liquid-effect)',
