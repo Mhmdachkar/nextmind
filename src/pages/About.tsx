@@ -63,7 +63,7 @@ const stats = [
   { number: "150+", label: "Projects Delivered" },
   { number: "50+", label: "Happy Clients" },
   { number: "15+", label: "Industry Awards" },
-  { number: "8", label: "Years of Excellence" },
+  { number: "2+", label: "Years of Excellence" },
 ];
 
 const About = () => {
@@ -373,7 +373,7 @@ const About = () => {
                 Our Story
               </h2>
               <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed mb-6">
-                Founded in 2016, NextMind emerged from a simple belief: technology should empower, not complicate. What started as a small team of passionate developers has grown into a full-service digital agency trusted by brands worldwide.
+                Founded in 2025, Next Mind emerged from a simple belief: technology should empower, not complicate. What started as a small team of passionate developers has grown into a full-service digital agency trusted by brands worldwide.
               </p>
             </div>
 

@@ -6,6 +6,7 @@ import curlea from "@/assets/images/curlea.png";
 import aiFlower from "@/assets/images/ai flower .png";
 import aiTravel from "@/assets/images/ai travel .png";
 import aiScanner from "@/assets/images/ai scanner.jpg";
+import khaMobile from "@/assets/images/KHA_MOBILE.png";
 import hospitalManagement from "@/assets/images/aya beauty hospital mangment.png";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -19,7 +20,7 @@ const projects = [
   {
     id: 1,
     title: "Bexy Flowers",
-    category: "E-Commerce",
+    category: "E-Commerce + AI",
     type: "Website",
     image: bexyFlowers,
     year: "2024",
@@ -78,6 +79,14 @@ const projects = [
     category: "Healthcare",
     type: "System",
     image: hospitalManagement,
+    year: "2025",
+  },
+  {
+    id: 9,
+    title: "KHA Mobile",
+    category: "Mobile App",
+    type: "Mobile App",
+    image: khaMobile,
     year: "2025",
   },
 ];
@@ -768,6 +777,21 @@ const Work = () => {
                 <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[7].type}</p>
                 <h3 className="font-hero text-xl font-bold uppercase text-white">{projects[7].title}</h3>
                 <p className="text-sm text-white/70 mt-1">{projects[7].category}</p>
+              </div>
+            </div>
+
+            {/* Row 11-14: KHA Mobile — portrait/reel (full width of right side) */}
+            <div
+              ref={(el) => { if (el) backgroundImagesRef.current[8] = el; }}
+              className="group relative overflow-hidden rounded-xl cursor-pointer"
+              style={{ gridColumn: "1 / 5", gridRow: "11 / 15" }}
+            >
+              <img src={projects[8].image} alt={projects[8].title} className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-xs uppercase tracking-widest text-orange-400 mb-1">{projects[8].type}</p>
+                <h3 className="font-hero text-xl font-bold uppercase text-white">{projects[8].title}</h3>
+                <p className="text-sm text-white/70 mt-1">{projects[8].category}</p>
               </div>
             </div>
           </div>

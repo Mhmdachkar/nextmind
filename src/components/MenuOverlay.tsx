@@ -94,11 +94,11 @@ const MenuOverlay = ({ isOpen, onClose }: MenuOverlayProps) => {
             transition: "opacity 0.6s ease 0.6s",
           }}
         >
-          <a href="mailto:nextmind@gmail.com" className="hover:text-primary transition-colors">nextmind@gmail.com</a>
+          <a href="mailto:nexttmind@gmail.com" className="hover:text-primary transition-colors">nexttmind@gmail.com</a>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-primary transition-colors">Instagram</a>
-            <a href="#" className="hover:text-primary transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-primary transition-colors">Twitter</a>
+            <a href="https://instagram.com/next._.mind" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a>
+            <a href="https://tiktok.com/@next._.mind" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">TikTok</a>
+            <span className="opacity-40 cursor-default" title="Coming soon">LinkedIn</span>
           </div>
         </div>
       </div>

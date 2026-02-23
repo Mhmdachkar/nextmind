@@ -5,15 +5,28 @@ import bexyFlowers from "@/assets/images/bexyflowers.png";
 import travelAgency from "@/assets/images/travel agency.png";
 import aiScanner from "@/assets/images/ai scanner.jpg";
 import hospitalManagement from "@/assets/images/aya beauty hospital mangment.png";
+import bexyVideo from "@/assets/videos/Bexyflowers.webm";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const projects = [
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  image: string;
+  video?: string;
+  duration: string;
+  result: string;
+  client: string;
+}
+
+const projects: Project[] = [
   {
     title: "Bexy Flowers",
-    description: "An elegant e-commerce experience for a premium flower shop — browsing, ordering, and gifting made beautiful.",
-    tags: ["DESIGN", "E-COMMERCE", "DEVELOPMENT"],
+    description: "Premium flower shop with an AI bouquet builder — customize your arrangement by choosing flowers, colors, sizes, and packaging, and the AI creates your perfect bouquet.",
+    tags: ["DESIGN", "E-COMMERCE", "AI"],
     image: bexyFlowers,
+    video: bexyVideo,
     duration: "3 months",
     result: "+180% orders",
     client: "Bexy Flowers",
@@ -50,6 +63,8 @@ const projects = [
 const WorkShowcaseSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoImgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -188,6 +203,35 @@ const WorkShowcaseSection = () => {
         }
       });
     };
+  }, []);
+
+  // Scroll-triggered video play/pause for Bexy Flowers (index 0)
+  useEffect(() => {
+    const video = videoRef.current;
+    const img = videoImgRef.current;
+    const card = cardsRef.current[0];
+    if (!video || !card) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play();
+            video.style.opacity = "1";
+            if (img) img.style.opacity = "0";
+          } else {
+            video.pause();
+            video.currentTime = 0;
+            video.style.opacity = "0";
+            if (img) img.style.opacity = "1";
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(card);
+    return () => observer.disconnect();
   }, []);
 
   const dots = [
@@ -334,13 +378,28 @@ const WorkShowcaseSection = () => {
                   {/* Orange glow effect */}
                   <div className="absolute -inset-4 bg-gradient-to-r from-orange-500/20 to-orange-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
-                  {/* Image container */}
+                  {/* Image / Video container */}
                   <div className="relative z-10 rounded-2xl overflow-hidden border-4 border-orange-500/20 group-hover:border-orange-500/50 transition-all duration-500">
+                    {/* Static image */}
                     <img
+                      ref={project.video ? videoImgRef : undefined}
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-auto aspect-video object-cover transform group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-auto aspect-video object-cover transform group-hover:scale-105 transition-all duration-700"
+                      style={{ transition: "opacity 0.6s ease, transform 0.7s ease" }}
                     />
+                    {/* Video — auto-plays on scroll into view, pauses when out */}
+                    {project.video && (
+                      <video
+                        ref={videoRef}
+                        src={project.video}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        muted
+                        loop
+                        playsInline
+                        style={{ opacity: 0, transition: "opacity 0.6s ease" }}
+                      />
+                    )}
                     {/* Overlay gradient on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>

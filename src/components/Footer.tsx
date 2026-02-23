@@ -111,8 +111,8 @@ const Footer = () => {
   ];
 
   const socialLinks = [
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-    { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+    { icon: Instagram, href: "https://instagram.com/next._.mind", label: "Instagram" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
     { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
   ];
 
@@ -354,11 +354,11 @@ const Footer = () => {
                 <ul className="space-y-3 md:space-y-4">
                   <li>
                     <a
-                      href="mailto:nextmind@gmail.com"
+                      href="mailto:nexttmind@gmail.com"
                       className="hover-zoom-laptop-subtle flex items-start justify-center md:justify-start gap-3 text-black/80 hover:text-black transition-colors group"
                     >
                       <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 group-hover:scale-110 transition-transform" />
-                      <span className="text-sm break-all">nextmind@gmail.com</span>
+                      <span className="text-sm break-all">nexttmind@gmail.com</span>
                     </a>
                   </li>
                   <li>

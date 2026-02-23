@@ -571,7 +571,7 @@ const Contact = () => {
               <div className="grid grid-cols-3 gap-4 md:flex md:flex-row md:justify-center md:gap-8 items-stretch">
               <div>
                 <a
-                  href="mailto:nextmind@gmail.com"
+                  href="mailto:nexttmind@gmail.com"
                   className="social-card group relative p-4 md:p-6 border-0 md:border-4 md:border-black md:hover:border-white transition-all duration-300 bg-white/5 md:bg-white/10 md:hover:bg-white/20 backdrop-blur-sm overflow-hidden flex flex-col items-center"
                 >
                   <div className="relative z-10 flex flex-col items-center">
@@ -599,7 +599,7 @@ const Contact = () => {
               </div>
               <div>
                 <a
-                  href="https://instagram.com/nextmind"
+                  href="https://instagram.com/next._.mind"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="social-card group relative p-4 md:p-6 border-0 md:border-4 md:border-black md:hover:border-white transition-all duration-300 bg-white/5 md:bg-white/10 md:hover:bg-white/20 backdrop-blur-sm overflow-hidden flex flex-col items-center"

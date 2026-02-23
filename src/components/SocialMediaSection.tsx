@@ -16,16 +16,17 @@ const SocialMediaSection = () => {
       name: "LinkedIn",
       icon: linkedinIcon,
       url: "#",
+      comingSoon: true,
     },
     {
       name: "TikTok",
       icon: tiktokIcon,
-      url: "#",
+      url: "https://tiktok.com/@next._.mind",
     },
     {
       name: "Instagram",
       icon: instagramIcon,
-      url: "#",
+      url: "https://instagram.com/next._.mind",
     },
   ];
 
@@ -155,33 +156,43 @@ const SocialMediaSection = () => {
             ref={(el) => {
               if (el) iconsRef.current[index] = el;
             }}
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover-zoom-laptop group relative w-full md:w-auto"
+            href={social.comingSoon ? undefined : social.url}
+            target={social.comingSoon ? undefined : "_blank"}
+            rel={social.comingSoon ? undefined : "noopener noreferrer"}
+            onClick={social.comingSoon ? (e) => e.preventDefault() : undefined}
+            className={`hover-zoom-laptop group relative w-full md:w-auto${social.comingSoon ? " cursor-default" : ""}`}
           >
             {/* Mobile: Card layout with icon and name */}
             <div className="md:hidden flex items-center gap-4 bg-black/20 border border-orange-500/20 rounded-2xl p-4 backdrop-blur-sm transition-all duration-300 hover:bg-orange-500/10 hover:border-orange-500/50 hover:scale-105">
               <img
                 src={social.icon}
                 alt={social.name}
-                className="w-16 h-16 object-contain transition-all duration-300 drop-shadow-[0_0_15px_rgba(255,140,0,0.4)]"
+                className={`w-16 h-16 object-contain transition-all duration-300 drop-shadow-[0_0_15px_rgba(255,140,0,0.4)]${social.comingSoon ? " opacity-50 grayscale" : ""}`}
               />
               <div className="flex-1">
                 <h3 className="text-lg font-bold text-foreground uppercase tracking-wide">{social.name}</h3>
-                <p className="text-xs text-orange-500 font-medium">@nextmind</p>
+                {social.comingSoon ? (
+                  <p className="text-xs text-white/40 font-medium italic">Coming soon</p>
+                ) : (
+                  <p className="text-xs text-orange-500 font-medium">@next._.mind</p>
+                )}
               </div>
               <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center">
-                <span className="text-orange-500 font-bold">→</span>
+                <span className="text-orange-500 font-bold">{social.comingSoon ? "…" : "→"}</span>
               </div>
             </div>
 
             {/* Desktop: Original icon only */}
-            <img
-              src={social.icon}
-              alt={social.name}
-              className="hidden md:block w-64 lg:w-80 h-64 lg:h-80 object-contain transition-all duration-500 ease-out group-hover:scale-125 group-hover:rotate-12 drop-shadow-[0_0_20px_rgba(255,140,0,0.5)] group-hover:drop-shadow-[0_0_40px_rgba(255,140,0,0.8)]"
-            />
+            <div className="hidden md:block relative">
+              <img
+                src={social.icon}
+                alt={social.name}
+                className={`w-64 lg:w-80 h-64 lg:h-80 object-contain transition-all duration-500 ease-out group-hover:scale-125 group-hover:rotate-12 drop-shadow-[0_0_20px_rgba(255,140,0,0.5)] group-hover:drop-shadow-[0_0_40px_rgba(255,140,0,0.8)]${social.comingSoon ? " opacity-40 grayscale" : ""}`}
+              />
+              {social.comingSoon && (
+                <span className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs uppercase tracking-widest text-white/50 font-hero whitespace-nowrap">Coming Soon</span>
+              )}
+            </div>
           </a>
         ))}
       </div>

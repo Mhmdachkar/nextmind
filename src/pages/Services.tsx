@@ -607,7 +607,7 @@ const Services = () => {
                 {/* Item 2 - Left side */}
                 <div className="timeline-item relative">
                   <div className="flex flex-col md:flex-row items-center">
-                    <div className="timeline-box w-full md:w-1/2 pr-0 md:pr-8 md:pr-16 text-center md:text-right order-2">
+                    <div className="timeline-box w-full md:w-1/2 pr-0 md:pr-8 md:pr-16 text-center md:text-right order-3 md:order-1">
                       <div className="relative p-6 md:p-8 border border-orange-500/30 hover:border-orange-500 transition-all duration-300 bg-gradient-to-bl from-background to-orange-950/10 backdrop-blur-sm overflow-hidden group">
                         <div className="absolute inset-0 bg-gradient-to-bl from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                         <div className="relative z-10">
@@ -618,10 +618,10 @@ const Services = () => {
                         </div>
                       </div>
                     </div>
-                    <div className="timeline-circle w-12 h-12 md:w-16 md:h-16 rounded-full bg-orange-600 border-4 border-background flex items-center justify-center font-hero text-lg md:text-2xl font-bold z-10 my-4 md:my-0 md:absolute md:left-1/2" style={{ transform: 'translateX(-50%)' }}>
+                    <div className="timeline-circle w-12 h-12 md:w-16 md:h-16 rounded-full bg-orange-600 border-4 border-background flex items-center justify-center font-hero text-lg md:text-2xl font-bold z-10 mb-4 md:mb-0 md:absolute md:left-1/2 order-1 md:order-2" style={{ transform: 'translateX(-50%)' }}>
                       02
                     </div>
-                    <div className="w-full md:w-1/2 md:pl-8 md:pl-16" />
+                    <div className="w-full md:w-1/2 md:pl-8 md:pl-16 order-2 md:order-3" />
                   </div>
                 </div>
 
